@@ -44,8 +44,7 @@ def webhook():
 if __name__ == "__main__":
 	bot.remove_webhook()
 	time.sleep(0.1)
-	bot.set_webhook(url=WEBHOOK_URL_BASE+WEBHOOK_URL_PATH,
-					open(WEBHOOK_SSL_CERT, 'r'))
+	bot.set_webhook(WEBHOOK_URL_BASE+WEBHOOK_URL_PATH, open(WEBHOOK_SSL_CERT, 'r'))
 	app.run(host=WEBHOOK_LISTEN,
 		port=WEBHOOK_PORT,
 		ssl_context=(WEBHOOK_SSL_CERT, WEBHOOK_SSL_PRIV))
