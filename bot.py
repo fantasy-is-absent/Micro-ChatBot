@@ -2,6 +2,7 @@ import config
 from telebot import TeleBot, types
 
 bot = config.bot
+bot.remove_webhook()
 
 @bot.message_handler(commands = ["start"])
 def start_menu(message):
@@ -31,4 +32,9 @@ def repeat_all_messages(message):
 	bot.send_message(chat_id = message.chat.id,
 						 text = msg)
 
-bot.polling(none_stop = True)
+while True:
+	try:
+		bot.polling(none_stop=True)
+	except Exception as e:
+		logger.error(e)
+		time.sleep(15)
