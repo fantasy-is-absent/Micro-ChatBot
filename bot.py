@@ -2,7 +2,6 @@ import config
 from telebot import TeleBot, types
 
 bot = config.bot
-bot.remove_webhook()
 
 @bot.message_handler(commands = ["start"])
 def start_menu(message):
